@@ -1,0 +1,53 @@
+**Protocol: Advanced Keylogger Detection using eBPF**
+
+The system follows a structured and continuous protocol to monitor, analyze, and respond to potential keylogging activities in real time. The goal is to ensure accurate detection while maintaining system stability and ethical operation.
+
+---
+
+**1. System Initialization**
+The process begins by loading and attaching the eBPF program to the Linux kernel using frameworks such as BCC or libbpf. The program is configured to monitor critical system calls like `open()` and `read()`, which are commonly used by processes to access input devices.
+
+---
+
+**2. Monitoring Input Device Access**
+The system continuously observes attempts to access keyboard input devices, particularly `/dev/input/event*`. Whenever a process interacts with these devices, essential information such as process ID (PID), process name, and timestamp is captured.
+
+---
+
+**3. Event Collection and Streaming**
+All detected events are collected and maintained in a structured stream or buffer. This enables real-time tracking of system activity and provides a foundation for further behavioral analysis.
+
+---
+
+**4. Behavioral Analysis**
+Each process is evaluated based on its interaction patterns with the input devices. Factors such as frequency of access, execution context (foreground or background), and timing patterns are analyzed to identify abnormal behavior.
+
+---
+
+**5. Honeypot Keystroke Injection**
+To enhance detection capability, the system introduces controlled fake keystrokes into the environment. Processes that capture or react to these artificial inputs are considered highly suspicious, as legitimate applications typically ignore such data.
+
+---
+
+**6. Trust Score Evaluation**
+A dynamic trust score is assigned to each process based on multiple behavioral indicators. This scoring mechanism helps differentiate between legitimate system processes and potential keyloggers. Processes exceeding a predefined threshold are flagged for further action.
+
+---
+
+**7. Threat Detection and Classification**
+Based on the trust score and behavioral analysis, processes are classified as either normal or suspicious. Suspicious processes are identified as potential keylogging threats.
+
+---
+
+**8. Alert Generation and Response**
+When a threat is detected, the system generates real-time alerts and logs detailed information for analysis. Depending on system configuration, additional actions such as restricting access or terminating the process may be performed.
+
+---
+
+**9. Continuous Monitoring Loop**
+The protocol operates in a continuous loop, ensuring ongoing monitoring and adaptive detection. The system dynamically updates its analysis as new events occur, improving accuracy over time.
+
+---
+
+**Summary**
+This protocol provides a comprehensive and real-time approach to keylogger detection by combining kernel-level monitoring, behavioral intelligence, and proactive identification techniques in a safe and controlled manner.
