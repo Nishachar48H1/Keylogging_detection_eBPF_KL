@@ -1,0 +1,75 @@
+**Tools & Technologies Used for Development**
+
+To implement the proposed keylogger detection system using eBPF, a combination of system-level tools, programming frameworks, and monitoring utilities are utilized.
+
+---
+
+**1. eBPF Frameworks**
+
+* **BCC (BPF Compiler Collection):**
+  Used for writing and running eBPF programs with Python bindings, making development easier and faster.
+
+* **libbpf:**
+  A low-level library for interacting directly with eBPF programs in C for more optimized and production-level implementations.
+
+---
+
+**2. Programming Languages**
+
+* **C:**
+  Used for writing eBPF programs that run inside the Linux kernel.
+
+* **Python:**
+  Used for user-space interaction, data processing, and rapid prototyping with BCC.
+
+---
+
+**3. System Monitoring Tools**
+
+* **bpftool:**
+  Used to load, inspect, and debug eBPF programs within the kernel.
+
+* **strace (optional):**
+  Helps in understanding system calls and debugging process behavior.
+
+---
+
+**4. Development Environment**
+
+* **Linux OS (Ubuntu/Kali Linux):**
+  Required for eBPF support and kernel-level experimentation.
+
+* **Kernel Headers & LLVM/Clang:**
+  Necessary for compiling eBPF programs.
+
+---
+
+**5. Data Handling & Logging**
+
+* **Perf Buffer / Ring Buffer:**
+  Used for transferring data from kernel space to user space efficiently.
+
+* **Logging System (File/Console):**
+  Stores detected events for analysis and debugging.
+
+---
+
+**6. Visualization & Interface (Optional)**
+
+* **Flask / Web Dashboard:**
+  For displaying logs and alerts in a user-friendly interface.
+
+* **Matplotlib / Charts:**
+  For visualizing behavior patterns and detection results.
+
+---
+
+**7. Testing & Simulation Tools**
+
+* Custom scripts to simulate keylogger behavior
+* Controlled input generation for honeypot testing
+
+---
+
+**Summary**
+These tools collectively enable efficient kernel-level monitoring, real-time data analysis, and user-friendly visualization, making the system both practical and scalable.
